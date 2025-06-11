@@ -1,6 +1,6 @@
 import { LinkedList } from "./linkedlists.js";
 
-class HashMap {
+export class HashMap {
   constructor() {
     this.capacity = 16;
     this.loadFactor = 0.75;
@@ -56,16 +56,3 @@ class HashMap {
     return bucket.contains(key);
   }
 }
-
-let hash = new HashMap();
-hash.set("apple", "red");
-console.log(hash.hash("apple"));
-console.log(hash.buckets[10]);
-console.log(hash.has("apple"));
-console.log(hash.get("apple"));
-console.log(hash.has("banana"));
-console.log(hash.get("banana"));
-hash.set("apple", "green");
-console.log(hash.buckets[10]);
-console.log(hash.get("apple"));
-
