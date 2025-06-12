@@ -34,17 +34,15 @@ console.log("Set key 'apple' with value 'red'.");
 test.set("banana", "yellow");
 console.log("Set key 'banana' with value 'yellow'.");
 
-
 test.set("carrot", "orange");
 console.log("Set key 'carrot' with value 'orange'.");
 
 console.log("HashMap length (aka # of entries): ", test.length());
 
-
 // clear
 
 test.clear();
-console.log("Remove all entries from HashMap.")
+console.log("Remove all entries from HashMap.");
 
 console.log("HashMap length: ", test.length());
 
@@ -78,15 +76,25 @@ console.log("HashMap entries (key-value pairs): ", test.entries());
 
 console.log("HashMap length = ", test.length());
 console.log("HashMap capacity = ", test.capacity);
-console.log("HashMap load levels = length / capacity = ", test.length() / test.capacity);
+console.log(
+  "HashMap load levels = length / capacity = ",
+  test.length() / test.capacity
+);
 console.log("HashMap load factor = ", test.loadFactor);
-console.log("Since the HashMap's load levels are equal to its load factor, the HashMap is at full capacity.");
+console.log(
+  "Since the HashMap's load levels are equal to its load factor, the HashMap is at full capacity."
+);
 
 test.set("moon", "silver");
-console.log("Set key 'moon' with value 'silver'.")
+console.log("Set key 'moon' with value 'silver'.");
 
 console.log("HashMap length = ", test.length());
 console.log("HashMap capacity = ", test.capacity);
-console.log("HashMap load levels = length / capacity = ", test.length() / test.capacity);
+console.log(
+  "HashMap load levels = length / capacity = ",
+  test.length() / test.capacity
+);
 console.log("HashMap load factor = ", test.loadFactor);
-console.log("Since the HashMap was at full capacity, when a new entry was added, the HashMap's capacity doubled and its entries were redistributed. Its load levels are now lower than its load factor. All HashMap methods work as expected on the expanded HashMap.");
+console.log(
+  "Since the HashMap was at full capacity, when a new entry was added, the HashMap's capacity doubled and its entries were redistributed. Its load levels are now lower than its load factor. All HashMap methods work as expected on the expanded HashMap."
+);
