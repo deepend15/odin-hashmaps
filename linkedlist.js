@@ -137,24 +137,26 @@ export class LinkedList {
 //     }
 //   }
 
-//   removeAt(index) {
-//     if (index < 0 || index > this.size() - 1) throw new Error("Invalid index.");
-//     else {
-//       if (this.size() === 1) {
-//         delete this.value;
-//         delete this.nextNode;
-//       } else if (index === 0) {
-//         const newHead = this.at(1);
-//         this.value = newHead.value;
-//         this.nextNode = newHead.nextNode;
-//       } else if (index === this.size() - 1) {
-//         const newTail = this.at(this.size() - 2);
-//         newTail.nextNode = null;
-//       } else {
-//         const nodeBeforeIndex = this.at(index - 1);
-//         const nodeAfterIndex = this.at(index + 1);
-//         nodeBeforeIndex.nextNode = nodeAfterIndex;
-//       }
-//     }
-//   }
+  removeAt(index) {
+    if (index < 0 || index > this.size() - 1) throw new Error("Invalid index.");
+    else {
+      if (this.size() === 1) {
+        delete this.key;
+        delete this.value;
+        delete this.nextNode;
+      } else if (index === 0) {
+        const newHead = this.at(1);
+        this.key = newHead.key;
+        this.value = newHead.value;
+        this.nextNode = newHead.nextNode;
+      } else if (index === this.size() - 1) {
+        const newTail = this.at(this.size() - 2);
+        newTail.nextNode = null;
+      } else {
+        const nodeBeforeIndex = this.at(index - 1);
+        const nodeAfterIndex = this.at(index + 1);
+        nodeBeforeIndex.nextNode = nodeAfterIndex;
+      }
+    }
+  }
 }

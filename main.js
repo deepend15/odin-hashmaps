@@ -1,13 +1,10 @@
-import { HashMap } from "./hashmaps.js";
+import { HashMap } from "./hashmap.js";
 
 let hash = new HashMap();
 hash.set("apple", "red");
-console.log(hash.hash("apple"));
-console.log(hash.buckets[10]);
-console.log(hash.has("apple"));
-console.log(hash.get("apple"));
-console.log(hash.has("banana"));
-console.log(hash.get("banana"));
-hash.set("apple", "green");
-console.log(hash.buckets[10]);
-console.log(hash.get("apple"));
+hash.set("banana", "green");
+hash.set("fruit", "green");
+hash.set("blue", "blue");
+console.log(hash.keys());
+console.log(hash.values());
+console.log(hash.entries());

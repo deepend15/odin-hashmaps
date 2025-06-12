@@ -1,4 +1,4 @@
-import { LinkedList } from "./linkedlists.js";
+import { LinkedList } from "./linkedlist.js";
 
 export class HashMap {
   constructor() {
@@ -54,5 +54,91 @@ export class HashMap {
     const bucket = this.buckets[hashCode];
 
     return bucket.contains(key);
+  }
+
+  remove(key) {
+    const hashCode = this.hash(key);
+    const bucket = this.buckets[hashCode];
+
+    if (bucket.contains(key)) {
+      const index = bucket.find(key);
+      bucket.removeAt(index);
+      return true;
+    } else return false;
+  }
+
+  length() {
+    let counter = 0;
+
+    for (const bucket of this.buckets) {
+      counter += bucket.size();
+    }
+
+    return counter;
+  }
+
+  clear() {
+    for (const bucket of this.buckets) {
+      if (bucket.size() > 0) {
+        delete bucket.key;
+        delete bucket.value;
+        delete bucket.nextNode;
+      }
+    }
+  }
+
+  keys() {
+    const keysArray = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket.size() > 0) {
+        const bucketSize = bucket.size();
+
+        for (let i = 0; i < bucketSize; i++) {
+          const bucketNode = bucket.at(i);
+          const nodeKey = bucketNode.key;
+          keysArray.push(nodeKey);
+        }
+      }
+    }
+
+    return keysArray;
+  }
+
+  values() {
+    const valuesArray = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket.size() > 0) {
+        const bucketSize = bucket.size();
+
+        for (let i = 0; i < bucketSize; i++) {
+          const bucketNode = bucket.at(i);
+          const nodeValue = bucketNode.value;
+          valuesArray.push(nodeValue);
+        }
+      }
+    }
+
+    return valuesArray;
+  }
+
+  entries() {
+    const pairsArray = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket.size() > 0) {
+        const bucketSize = bucket.size();
+
+        for (let i = 0; i < bucketSize; i++) {
+          const bucketNode = bucket.at(i);
+          const nodeKey = bucketNode.key;
+          const nodeValue = bucketNode.value;
+          pairsArray.push([nodeKey, nodeValue]);
+        }
+      }
+    }
+
+    return pairsArray;
   }
 }
