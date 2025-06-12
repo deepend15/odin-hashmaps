@@ -7,11 +7,6 @@ export class LinkedList {
     }
   };
 
-  //   head() {
-  //     if (!this.value) return null;
-  //     else return this;
-  //   }
-
   tail() {
     if (!this.key) return null;
     else {
@@ -34,17 +29,6 @@ export class LinkedList {
       tail.nextNode = newNode;
     }
   }
-
-//   prepend(value) {
-//     if (!this.value) {
-//       this.value = value;
-//       this.nextNode = null;
-//     } else {
-//       let newNode = new LinkedList.Node(this.value, this.nextNode);
-//       this.value = value;
-//       this.nextNode = newNode;
-//     }
-//   }
 
   size() {
     if (!this.key) return 0;
@@ -74,17 +58,6 @@ export class LinkedList {
     }
   }
 
-//   pop() {
-//     if (!this.value) return;
-//     else if (this.size() === 1) {
-//       delete this.value;
-//       delete this.nextNode;
-//     } else {
-//       const penultimateNode = this.at(this.size() - 2);
-//       penultimateNode.nextNode = null;
-//     }
-//   }
-
   contains(key) {
     if (!this.key) return false;
     else {
@@ -106,36 +79,6 @@ export class LinkedList {
       }
     }
   }
-
-//   toString() {
-//     if (!this.value) return "null";
-//     else {
-//       let arr = [];
-//       for (let currentNode = this; ; currentNode = currentNode.nextNode) {
-//         arr.push(currentNode.value.toString());
-//         if (currentNode.nextNode === null) break;
-//       }
-//       let arr2 = arr.map((value) => `( ` + value + ` )`);
-//       arr2.push("null");
-//       return arr2.join(" -> ");
-//     }
-//   }
-
-//   insertAt(value, index) {
-//     if (index < 0 || index > this.size()) {
-//       if (!this.value && index === 0) this.append(value);
-//       else throw new Error("Invalid index.");
-//     } else {
-//       if (index === this.size()) this.append(value);
-//       else if (index === 0) this.prepend(value);
-//       else {
-//         const nodeAtIndex = this.at(index);
-//         const nodeBeforeIndex = this.at(index - 1);
-//         const newNode = new LinkedList.Node(value, nodeAtIndex);
-//         nodeBeforeIndex.nextNode = newNode;
-//       }
-//     }
-//   }
 
   removeAt(index) {
     if (index < 0 || index > this.size() - 1) throw new Error("Invalid index.");
