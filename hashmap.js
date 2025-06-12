@@ -11,13 +11,6 @@ export class HashMap {
     }
   }
 
-  //   generateBuckets() {
-  //     let capacity = this.capacity;
-  //     for (i = 0; i < capacity; i++) {
-  //       this.buckets.push(new LinkedList());
-  //     }
-  //   }
-
   hash(key) {
     let hashCode = 0;
 
@@ -37,6 +30,19 @@ export class HashMap {
       const bucketWithKey = bucket.at(bucket.find(key));
       bucketWithKey.value = value;
     } else bucket.append(key, value);
+
+    if (this.length() > this.capacity * this.loadFactor) {
+      const storedEntries = this.entries();
+      this.clear();
+      this.capacity = this.capacity * 2;
+      this.buckets = [];
+      for (let i = 0; i < this.capacity; i++) {
+        this.buckets.push(new LinkedList());
+      }
+      for (const entry of storedEntries) {
+        this.set(entry[0], entry[1]);
+      }
+    }
   }
 
   get(key) {
